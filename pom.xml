@@ -4,16 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Project coordinates -->
     <groupId>ru.job4j.dreamjob</groupId>
     <artifactId>dreamjob</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- Set Java version compatibility and encoding -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- Parent POM for Spring Boot's default configurations -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,23 +24,29 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <!-- Project dependencies -->
     <dependencies>
+        <!-- Spring Boot Starter for Thymeleaf -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        <!-- Spring Boot Starter for building web, including RESTful, applications -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
+    <!-- Build configurations -->
     <build>
         <plugins>
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Maven Checkstyle Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -68,5 +77,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
