@@ -1,5 +1,6 @@
 package ru.job4j.dreamjob.model;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 public class Candidate {
 
@@ -18,6 +20,10 @@ public class Candidate {
     private String description;
 
     private LocalDateTime creationDate;
+
+    public Candidate() {
+        this.creationDate = LocalDateTime.now();
+    }
 
     public Candidate(int id, String name) {
         this.id = id;
