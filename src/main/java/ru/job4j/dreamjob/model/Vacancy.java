@@ -25,8 +25,4 @@ public class Vacancy {
         this.creationDate = LocalDateTime.now();
     }
 
-    public Vacancy(int id, String title) {
-        this.id = id;
-        this.title = title;
-    }
 }

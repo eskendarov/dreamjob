@@ -25,9 +25,4 @@ public class Candidate {
         this.creationDate = LocalDateTime.now();
     }
 
-    public Candidate(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
 }
