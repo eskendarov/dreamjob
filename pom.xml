@@ -19,6 +19,14 @@
     <artifactId>dreamjob</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- Set Java version compatibility and encoding -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Profile configurations -->
     <profiles>
         <profile>
             <id>test</id>
@@ -37,13 +45,6 @@
         </profile>
     </profiles>
 
-    <!-- Set Java version compatibility and encoding -->
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <!-- Project dependencies -->
     <dependencies>
         <!-- Spring Boot Starter for web applications -->
@@ -52,11 +53,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Boot Starter Test for testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
+        <!-- H2 Database for in-memory database used in testing -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -154,6 +158,7 @@
                 </executions>
             </plugin>
 
+            <!-- Liquibase Plugin -->
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
