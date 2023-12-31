@@ -19,7 +19,10 @@ public class Sql2oVacancyRepository implements VacancyRepository {
     @Override
     public Vacancy save(Vacancy vacancy) {
         try (var connection = sql2o.open()) {
-            var sql = "INSERT INTO vacancies(title, description, creation_date, visible, city_id, file_id) VALUES (:title, :description, :creationDate, :visible, :cityId, :fileId)";
+            var sql = """
+                    INSERT INTO vacancies(title, description, creation_date, visible, city_id, file_id)
+                    VALUES (:title, :description, :creationDate, :visible, :cityId, :fileId)
+                    """;
             var query = connection.createQuery(sql, true)
                     .addParameter("title", vacancy.getTitle())
                     .addParameter("description", vacancy.getDescription())
@@ -47,7 +50,16 @@ public class Sql2oVacancyRepository implements VacancyRepository {
     @Override
     public boolean update(Vacancy vacancy) {
         try (var connection = sql2o.open()) {
-            var sql = "UPDATE vacancies SET title = :title, description = :description, creation_date = :creationDate, visible = :visible, city_id = :cityId, file_id = :fileId WHERE id = :id";
+            var sql = """
+                    UPDATE vacancies
+                    SET title         = :title,
+                        description   = :description,
+                        creation_date = :creationDate,
+                        visible       = :visible,
+                        city_id       = :cityId,
+                        file_id       = :fileId
+                    WHERE id = :id
+                    """;
             var query = connection.createQuery(sql)
                     .addParameter("title", vacancy.getTitle())
                     .addParameter("description", vacancy.getDescription())

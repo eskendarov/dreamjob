@@ -19,7 +19,10 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public Candidate save(Candidate candidate) {
         try (var connection = sql2o.open()) {
-            var sql = "INSERT INTO candidates(name, description, creation_date) VALUES (:name, :description, :creationDate)";
+            var sql = """
+                    INSERT INTO candidates(name, description, creation_date)
+                    VALUES (:name, :description, :creationDate)
+                    """;
             var query = connection.createQuery(sql, true)
                     .addParameter("name", candidate.getName())
                     .addParameter("description", candidate.getDescription())
@@ -44,7 +47,13 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public boolean update(Candidate candidate) {
         try (var connection = sql2o.open()) {
-            var sql = "UPDATE candidates SET name = :name, description = :description, creation_date = :creationDate WHERE id = :id";
+            var sql = """
+                    UPDATE candidates
+                    SET name          = :name,
+                        description   = :description,
+                        creation_date = :creationDate
+                    WHERE id = :id
+                    """;
             var query = connection.createQuery(sql)
                     .addParameter("id", candidate.getId())
                     .addParameter("name", candidate.getName())
