@@ -1,4 +1,4 @@
-<div th:fragment="header">
+<header th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand me-2" href="/">
@@ -24,13 +24,16 @@
                 </div>
                 <!-- Right links -->
                 <div class="d-flex align-items-center">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link text-info" th:href="@{/users/login}" th:classappend="${currentSection} == 'login' ? 'active' : ''">Войти</a>
+                    <div class="navbar-nav" th:if="${user} == null">
+                        <a class="nav-item nav-link text-info" th:href="@{/users/login}">Войти</a>
                         <a class="nav-item nav-link" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
+                    </div>
+                    <div class="navbar-nav" th:if="${user} != null">
+                        <a class="nav-item nav-link text-info" href="#" th:text="${user.email}"></a>
+                        <a class="nav-item nav-link" th:href="@{/users/logout}">Выйти</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-</div>
-
+</header>

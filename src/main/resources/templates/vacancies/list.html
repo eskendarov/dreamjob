@@ -29,7 +29,17 @@
                 <tr th:each="vacancy: ${vacancies}">
                     <td th:text="${vacancy.id}"></td>
                     <td>
-                        <p class="fw-bold mb-0" th:text="${vacancy.title.toUpperCase()}"></p>
+                        <div class="d-flex align-items-center">
+                            <img
+                                    th:src="@{/files/{fileId}(fileId=*{vacancy.fileId})}"
+                                    alt="user"
+                                    style="width: 24px; height: 24px"
+                                    class="rounded-circle"
+                            />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-0" th:text="${vacancy.title.toUpperCase()}"></p>
+                            </div>
+                        </div>
                     </td>
                     <td>
                         <p class="fw-normal mb-0" th:text="${vacancy.description.length() > 30 ? vacancy.description.substring( 0, 30) + '...' : vacancy.description}"></p>
