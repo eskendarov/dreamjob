@@ -25,7 +25,8 @@
                 <!-- Right links -->
                 <div class="d-flex align-items-center">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link text-info" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
+                        <a class="nav-item nav-link text-info" th:href="@{/users/login}" th:classappend="${currentSection} == 'login' ? 'active' : ''">Войти</a>
+                        <a class="nav-item nav-link" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
                     </div>
                 </div>
             </div>
