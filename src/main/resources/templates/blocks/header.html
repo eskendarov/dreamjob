@@ -1,17 +1,32 @@
 <div th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">DreamJob</a>
+            <a class="navbar-brand me-2" href="/">
+                <img
+                        src="https://img.icons8.com/color/48/find-matching-job.png"
+                        height="24"
+                        alt="Logo"
+                        loading="lazy"
+                        style="margin-top: -1px;"
+                />
+                DreamJob
+            </a>
             <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" th:href="@{/}" th:classappend="${currentSection} == 'home' ? 'active' : ''">Главная</a>
-                    <a class="nav-item nav-link" th:href="@{/vacancies}" th:classappend="${currentSection} == 'vacancies' ? 'active' : ''">Вакансии</a>
-                    <a class="nav-item nav-link" th:href="@{/candidates}" th:classappend="${currentSection} == 'candidates' ? 'active' : ''">Кандидаты</a>
-                    <a class="nav-item nav-link" th:href="@{/vacancies/create}" th:classappend="${currentSection} == 'createVacancy' ? 'active' : ''">Создать вакансию</a>
-                    <a class="nav-item nav-link" th:href="@{/candidates/create}" th:classappend="${currentSection} == 'createCandidate' ? 'active' : ''">Создать резюме</a>
+                <!-- Left links -->
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" th:href="@{/}" th:classappend="${currentSection} == 'home' ? 'active' : ''">Главная</a>
+                        <a class="nav-item nav-link" th:href="@{/vacancies}" th:classappend="${currentSection} == 'vacancies' ? 'active' : ''">Вакансии</a>
+                        <a class="nav-item nav-link" th:href="@{/candidates}" th:classappend="${currentSection} == 'candidates' ? 'active' : ''">Кандидаты</a>
+                        <a class="nav-item nav-link" th:href="@{/vacancies/create}" th:classappend="${currentSection} == 'createVacancy' ? 'active' : ''">Создать вакансию</a>
+                        <a class="nav-item nav-link" th:href="@{/candidates/create}" th:classappend="${currentSection} == 'createCandidate' ? 'active' : ''">Создать резюме</a>
+                    </div>
                 </div>
-                <div class="d-flex">
-                    <a class="nav-link text-secondary" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
+                <!-- Right links -->
+                <div class="d-flex align-items-center">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link text-info" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
+                    </div>
                 </div>
             </div>
         </div>

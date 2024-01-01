@@ -19,23 +19,27 @@
                 <input class="form-control" id="title" name="title" placeholder="Предлагая должность, например, Ведущий Java разработчик" type="text">
             </div>
             <div class="mb-3">
-                <label for="formFile"><b>Фото</b></label>
-                <input class="form-control form-control-sm w-100" id="formFile" name="file" required type="file">
-            </div>
-            <div class="mb-3">
                 <label class="form-label" for="description"><b>Описание</b></label>
-                <textarea class="form-control" id="description" name="description" placeholder="Опишите требования к кандидату" rows="25"></textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="Опишите требования к кандидату" rows="10"></textarea>
             </div>
             <div class="form-check mb-3">
                 <label class="form-check-label" for="visible">Опубликовать</label>
                 <input class="form-check-input" id="visible" name="visible" type="checkbox">
             </div>
-            <div class="mb-3">
-                <label for="city"><b>Город</b></label>
-                <select class="form-control" id="city" name="cityId">
-                    <option th:each="city : ${cities}" th:text="${city.name}" th:value="${city.id}"></option>
-                </select>
+
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="formFile"><b>Фото</b></label>
+                    <input class="form-control" id="formFile" name="file" required type="file">
+                </div>
+                <div class="col mb-3">
+                    <label for="city"><b>Город</b></label>
+                    <select class="form-control" id="city" name="cityId">
+                        <option th:each="city : ${cities}" th:text="${city.name}" th:value="${city.id}"></option>
+                    </select>
+                </div>
             </div>
+            <br>
             <div class="mb-3 row">
                 <div class="col-6"></div>
                 <div class="col-6">

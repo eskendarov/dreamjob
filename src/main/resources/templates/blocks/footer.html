@@ -1,8 +1,11 @@
-<div class="container" th:fragment="footer">
-    <p class="pt-3 mt-4 text-muted border-top">
-        DreamJob
-        <br>
-        <a href="https://github.com/eskendarov">Developed by Enver Eskendarov</a><br>
-        <a href="https://eskendarov.github.io">eskendarov.github.io</a>
-    </p>
+<div th:fragment="footer">
+    <footer class="fixed-bottom text-white" style="background-color: #23242a;">
+        <p class="container pt-3 pb-0 text-info">
+            Developed by: <a class="link-light" href="https://eskendarov.github.io" target="_blank" rel="noopener noreferrer">Eskendarov</a><br>
+            DreamJob project on <a class="link-light" href="https://github.com/eskendarov/dreamjob" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+        <div class="text-center p-3 text-muted" style="background-color: rgba(0, 0, 0, 0.2);">
+            © <span th:text="${#dates.year(T(java.util.Calendar).getInstance())}">year</span> DreamJob. All rights reserved.
+        </div>
+    </footer>
 </div>
