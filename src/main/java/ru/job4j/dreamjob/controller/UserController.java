@@ -21,7 +21,8 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String getRegistrationPage() {
+    public String getRegistrationPage(Model model) {
+        model.addAttribute("currentSection", "register");
         return "users/register";
     }
 

@@ -22,12 +22,14 @@ public class CandidateController {
 
     @GetMapping
     public String getAll(Model model) {
+        model.addAttribute("currentSection", "candidates");
         model.addAttribute("candidates", candidateService.findAll());
         return "candidates/list";
     }
 
     @GetMapping("/create")
-    public String getCreationPage() {
+    public String getCreationPage(Model model) {
+        model.addAttribute("currentSection", "createCandidate");
         return "candidates/create";
     }
 

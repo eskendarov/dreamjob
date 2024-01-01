@@ -1,19 +1,20 @@
 <div th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">Job4jDreamJob</a>
+            <a class="navbar-brand" href="/">DreamJob</a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="/">Главная</a>
-                    <a class="nav-item nav-link active" th:href="@{/vacancies}">Вакансии</a>
-                    <a class="nav-item nav-link active" th:href="@{/candidates}">Кандидаты</a>
-                    <a class="nav-item nav-link active" th:href="@{/vacancies/create}">Создать вакансию</a>
-                    <a class="nav-item nav-link active" th:href="@{/candidates/create}">Создать резюме</a>
+                    <a class="nav-item nav-link" th:href="@{/}" th:classappend="${currentSection} == 'home' ? 'active' : ''">Главная</a>
+                    <a class="nav-item nav-link" th:href="@{/vacancies}" th:classappend="${currentSection} == 'vacancies' ? 'active' : ''">Вакансии</a>
+                    <a class="nav-item nav-link" th:href="@{/candidates}" th:classappend="${currentSection} == 'candidates' ? 'active' : ''">Кандидаты</a>
+                    <a class="nav-item nav-link" th:href="@{/vacancies/create}" th:classappend="${currentSection} == 'createVacancy' ? 'active' : ''">Создать вакансию</a>
+                    <a class="nav-item nav-link" th:href="@{/candidates/create}" th:classappend="${currentSection} == 'createCandidate' ? 'active' : ''">Создать резюме</a>
                 </div>
                 <div class="d-flex">
-                    <a class="nav-link text-secondary" th:href="@{/users/register}">Регистрация</a>
+                    <a class="nav-link text-secondary" th:href="@{/users/register}" th:classappend="${currentSection} == 'register' ? 'active' : ''">Регистрация</a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
+
