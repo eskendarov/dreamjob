@@ -13,7 +13,25 @@
 <div class="container-fluid p-0">
     <header th:insert="blocks/header :: header"></header>
     <div class="container mt-2">
-        <h3>Проект DreamJob, выполняемый в рамках курса Job4j</h3>
+        <br>
+        <h3>Проект DreamJob - Веб-Приложение на Java, PostgreSQL и Spring Framework</h3>
+        <br>
+        <h4>Обзор</h4>
+        <p>Это система для публикации вакансий и резюме с возможностью откликаться на вакансии и приглашать кандидатов на собеседование.</p>
+        <h5>Функционал:</h5>
+        <ul>
+            <li><strong>Вакансии</strong>: Кадровики публикуют информацию о работе.</li>
+            <li><strong>Кандидаты</strong>: Пользователи публикуют свои резюме.</li>
+            <li><strong>Отклики на вакансии</strong>: Кандидаты могут откликаться на интересующие их вакансии.</li>
+            <li><strong>Приглашения кандидатов</strong>: Кадровики могут приглашать кандидатов на собеседование.</li>
+        </ul>
+        <h5>Технологии:</h5>
+        <ul>
+            <li><strong>Java</strong>: Язык программирования.</li>
+            <li><strong>Spring Framework</strong>: Основной фреймворк для создания веб-приложений.</li>
+            <li><strong>Spring MVC</strong>: Модуль для создания веб-приложений в стиле MVC.</li>
+            <li><strong>Spring Boot</strong>: Упрощает настройку и публикацию веб-приложений.</li>
+        </ul>
         <ul>
             <li><a th:href="@{/vacancies}">Вакансии</a></li>
             <li><a th:href="@{/candidates}">Кандидаты</a></li>
