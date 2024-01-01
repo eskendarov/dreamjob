@@ -38,7 +38,7 @@ public class UserController {
         } else {
             model.addAttribute("user", user);
         }
-        return "redirect:/users/register";
+        return "redirect:/users/login";
     }
 
     @GetMapping("/login")
