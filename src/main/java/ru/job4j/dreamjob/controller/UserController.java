@@ -32,13 +32,12 @@ public class UserController {
     @PostMapping("/register")
     public String register(Model model, @ModelAttribute User user) {
         var savedUser = userService.save(user);
-        if (savedUser.isEmpty()) {
-            model.addAttribute("error", "Пользователь с такой почтой уже существует");
-            return "users/register";
-        } else {
-            model.addAttribute("user", user);
+        if (savedUser.isPresent()) {
             model.addAttribute("message", "Пользователь %s успешно зарегистрирован!".formatted(user.getName()));
+        } else {
+            model.addAttribute("error", "Пользователь с такой почтой уже существует");
         }
+        model.addAttribute("user", null);
         return "users/register";
     }
 
@@ -50,13 +49,14 @@ public class UserController {
     @PostMapping("/login")
     public String loginUser(@ModelAttribute User user, Model model, HttpServletRequest request) {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
-        if (userOptional.isEmpty()) {
+        if (userOptional.isPresent()) {
+            request.getSession().setAttribute("user", userOptional.get());
+            return "redirect:/vacancies";
+        } else {
             model.addAttribute("error", "Почта или пароль введены неверно");
+            model.addAttribute("user", null);
             return "users/login";
         }
-        var session = request.getSession();
-        session.setAttribute("user", userOptional.get());
-        return "redirect:/vacancies";
     }
 
     @GetMapping("/logout")
